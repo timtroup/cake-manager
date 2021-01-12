@@ -8,7 +8,7 @@ returns a 404, so getting this working should be the first priority.
 Requirements:
 * By accessing the root of the server (/) it should be possible to list the cakes currently in the system. This must be presented in an acceptable format for a human to read.
 
-* It must be possible for a human to add a new cake to the server.
+* It must be possible for a human to add a new cakeDTO to the server.
 
 * By accessing an alternative endpoint (/cakes) with an appropriate client it must be possible to download a list of
 the cakes currently in the system as JSON data.

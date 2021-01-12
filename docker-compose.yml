@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  cake-manager:
+    image: cake-manager
+    ports:
+      - "8080:8080"
