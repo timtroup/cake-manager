@@ -1,0 +1,16 @@
+version: 0.2
+
+env:
+  parameter-store:
+    GITHUB_DEPLOY_KEY: /codebuild/github/deploy_key/cake-manager
+  shell: bash
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+
+  build:
+    commands:
+      - echo maven build
+      - ./mvmw clean install
