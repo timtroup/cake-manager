@@ -1,0 +1,13 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: cake-manager
+
+application:
+  cors-enabled: true
+  allowed-origins:
+    - http://localhost:3000
+  allowed-methods:
+    - POST
+    - GET

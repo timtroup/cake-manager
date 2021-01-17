@@ -1,0 +1,8 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: cake-manager
+
+application:
+  cors-enabled: false
