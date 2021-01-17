@@ -1,2 +1,6 @@
 /target
 /.idea
+.terraform/
+build/
+node_modules/
+*.hcl
