@@ -13,4 +13,4 @@ phases:
   build:
     commands:
       - echo maven build
-      - ./mvmw clean install
+      - ./mvnw clean install
