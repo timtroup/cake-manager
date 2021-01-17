@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -27,7 +28,7 @@ public class CakeController {
     }
 
     @PostMapping("/cakes")
-    public Mono<CakeDTO> addCake(CakeDTO cakeDTO) {
+    public Mono<CakeDTO> addCake(@RequestBody CakeDTO cakeDTO) {
         CakeEntity cakeEntity = conversionService.convert(cakeDTO, CakeEntity.class);
 
         return cakeService.addCake(cakeEntity).flatMap(cake ->
