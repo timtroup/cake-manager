@@ -17,8 +17,11 @@ function App() {
     const onSubmit = async (data) => {
         axios.post(API_ENDPOINT + 'cakes', data)
             .then(function (response) {
-                console.log(response);
-                fetchData();
+                fetchData().then((res) => {
+                    setData(res.data);
+                    setLoading(false);
+                    alert(data.title + ' added successfully')
+                });
             })
             .catch(function (error) {
                 console.log(error);
@@ -27,7 +30,7 @@ function App() {
 
     useEffect(() => {
         fetchData().then((res) => {
-            setData(res);
+            setData(res.data);
             setLoading(false);
         })
     }, []);
@@ -35,12 +38,24 @@ function App() {
     return (
         <React.Fragment>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="title" placeholder="Title" ref={register({required: true})}/>
-                <input name="description" placeholder="Description" ref={register({required: true})}/>
-                <input name="image" placeholder="Image URL" ref={register({required: true})}/>
-                {errors.title && <span>This field is required</span>}
-                {errors.description && <span>This field is required</span>}
-                {errors.image && <span>This field is required</span>}
+                <label>
+                    Title:
+                    <input name="title" placeholder="Title" ref={register({required: true})}/>
+                </label>
+                <br/>
+                <label>
+                    Description:
+                    <input name="description" placeholder="Description" ref={register({required: true})}/>
+                </label>
+                <br/>
+                <label>
+                    Image:
+                    <input name="image" placeholder="Image URL" ref={register({required: true})}/>
+                </label>
+                <br/>
+                {errors.title && <span>Title is required</span>}
+                {errors.description && <span>Description is required</span>}
+                {errors.image && <span>Image is required</span>}
                 <input type="submit"/>
             </form>
             <div>

@@ -6,11 +6,13 @@ import {act} from "react-dom/test-utils";
 
 jest.mock('axios');
 
-const data = [{
-  title: "Lemon Cheesecake",
-  description: "description",
-  image: "http://www.villageinn.com/i/pies/profile/carrotcake_main1.jpg"
-}]
+const data = {
+  data: [{
+    title: "Lemon Cheesecake",
+    description: "description",
+    image: "http://www.villageinn.com/i/pies/profile/carrotcake_main1.jpg"
+  }]
+}
 
 configure({adapter: new Adapter()});
 
